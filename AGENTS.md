@@ -13,6 +13,7 @@ Incubator and index for a composable knowledge base. Drafts live as flat folders
 3. Multi-repo composed by ergo, not a monolith. Pull only relevant knowledge into a workspace.
 4. Front-load expensive generation, harvest forever. Tag work `[GEN] [BUILD] [CAPTURE] [TEMPLATE]`.
 5. Create GitHub repos on graduation, not up front.
+6. Token-efficient by default. Capture the content in full but cut verbiage. Simple, dense, concise. Bullets over prose, no filler.
 
 ## Where things live
 
@@ -25,5 +26,6 @@ Incubator and index for a composable knowledge base. Drafts live as flat folders
 ## Conventions
 
 - Markdown only. No invented metrics. No em-dashes.
+- Write tight: keep substance, drop filler. Prefer bullets and tables over paragraphs.
 - A folder maps to one future repo; keep it self-contained so it can graduate cleanly.
 - Don't create the GitHub repo until the folder is ready to stand alone.

@@ -150,7 +150,7 @@ kb-core/
 - `[BUILD]` Create the knowledge-base ergo workspace TOML (see §0.5)
 - `[BUILD]` Create ergo workspace TOMLs for active projects that include relevant kb repos
 
-### 0.4 Templates Repo (`kb-templates`)
+### 0.4 Templates Repo (`kb-templates`) — DONE
 
 ```
 kb-templates/
@@ -396,7 +396,7 @@ Notice: this workspace includes `kb-core` and `kb-python` but NOT `kb-go`,
 *Highest-leverage content. Lives in `kb-core` because it applies across all languages.
 Pull this repo into every workspace.*
 
-### 1.1 Error Handling (`kb-core/patterns/error-handling/`)
+### 1.1 Error Handling (`kb-core/patterns/error-handling/`) — DONE
 
 - `[GEN]` **philosophy.md** — The spectrum from exceptions to Result types to error values. Not syntax — *when* to use which strategy and *why*. Decision framework based on project type, team size, and reliability requirements.
 - `[GEN]` **taxonomy.md** — Reusable error classification: transient vs. permanent, retryable vs. fatal, user-facing vs. internal, expected vs. unexpected. Includes a template for project-specific taxonomies.
@@ -408,23 +408,23 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 - `[GEN]` **TypeScript:** discriminated unions, `neverthrow`, error boundaries, Zod validation errors
 - `[GEN]` **Python:** exception hierarchies, `@contextmanager`, structured logging, `ExceptionGroup`
 
-### 1.2 Concurrency (`kb-core/patterns/concurrency/`)
+### 1.2 Concurrency (`kb-core/patterns/concurrency/`) — DONE
 
 - `[GEN]` **mental-models.md** — threads vs. green threads vs. async, shared state vs. message passing, structured concurrency, backpressure, cancellation
 - `[GEN]` **patterns.md** — fan-out/fan-in, pipeline, worker pool, pub/sub, rate limiter, circuit breaker, with idiomatic implementations across all four languages (code in `kb-<lang>/snippets/`)
 - `[GEN]` **debugging.md** — deadlock/race condition symptoms, tools, prevention
 - Per-language: Go (goroutines, channels, `errgroup`, leaks), Rust (`tokio`, `Arc<Mutex>`, `Send`/`Sync`, `rayon`), TS (event loop, `Promise.all*`, workers, `AbortController`), Python (`asyncio`, GIL, `multiprocessing`, `trio`)
 
-### 1.3 API Design (`kb-core/patterns/api-design/`)
+### 1.3 API Design (`kb-core/patterns/api-design/`) — DONE
 
 - `[GEN]` REST checklist (naming, versioning, pagination, idempotency); gRPC guide; GraphQL decision framework; authN/authZ patterns (JWT, OAuth2, mTLS, RBAC vs ABAC)
 - `[TEMPLATE]` OpenAPI 3.1 starter, protobuf service starter
 
-### 1.4 Data Modeling (`kb-core/patterns/data-modeling/`)
+### 1.4 Data Modeling (`kb-core/patterns/data-modeling/`) — DONE
 
 - `[GEN]` modeling decision tree, schema evolution, per-language validation (Go tags, serde+validator, Zod, Pydantic), serialization comparison
 
-### 1.5 Testing Strategy (`kb-core/patterns/testing-strategy/`)
+### 1.5 Testing Strategy (`kb-core/patterns/testing-strategy/`) — DONE
 
 - `[GEN]` testing pyramid, test doubles taxonomy, integration isolation; per-language toolkits go in `kb-<lang>/testing/`
 - `[TEMPLATE]` test file starters per language
@@ -450,6 +450,7 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 
 ## Phase 3: System Architecture (`kb-core/architecture/`)
 
+- **3.0 System design basics:** checklist, scaling levers, language-selection heuristic — DONE
 - **3.1 Service:** decision framework, communication patterns, decomposition, observability; `[TEMPLATE]` service skeletons (Go, Rust)
 - **3.2 Data:** database selection, caching, event sourcing/CQRS, pipelines, migrations
 - **3.3 Infra:** containers, CI/CD, IaC comparison, local dev; `[TEMPLATE]` Dockerfiles, GH Actions, compose stacks

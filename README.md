@@ -11,6 +11,7 @@ The build plan is [knowledge-base-master-plan.md](knowledge-base-master-plan.md)
 3. **Multi-repo, not a monolith.** A context layer you inhabit, not a place you visit. Repos are pulled selectively into project workspaces so AI sees only relevant knowledge.
 4. **Front-load generation.** Spend tokens on expensive generation now; reuse forever. Tag work `[GEN]` `[BUILD]` `[CAPTURE]` `[TEMPLATE]`.
 5. **Create repos on graduation, not up front.** GitHub repos are made when a folder can stand on its own.
+6. **Token-efficient by default.** Capture the content in full but cut verbiage. Simple, dense, concise.
 
 ## Structure
 
