@@ -434,17 +434,17 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 ## Phase 2: Language-Specific Deep Dives (`kb-go`, `kb-rust`, `kb-typescript`, `kb-python`)
 
 ### 2.1 Go
-- `[GEN]` idioms compendium, concurrency cookbook, performance guide, project layout, generics patterns
+- `[GEN]` idioms compendium, concurrency cookbook, performance guide, project layout, generics patterns — DONE
 - `[CAPTURE]` lessons learned from Go projects
 
 ### 2.2 Rust
-- `[GEN]` ownership mental model, trait design patterns, error design playbook, async deep-dive, FFI/unsafe, performance, cargo ecosystem map
+- `[GEN]` ownership mental model, trait design patterns, error design playbook, async deep-dive, FFI/unsafe, performance, cargo ecosystem map — DONE
 
 ### 2.3 TypeScript
-- `[GEN]` type system deep-dive, patterns for scale, runtime vs compile-time safety, Node ops, frontend architecture, performance
+- `[GEN]` type system deep-dive, patterns for scale, runtime vs compile-time safety, Node ops, frontend architecture, performance — DONE (frontend arch planned)
 
 ### 2.4 Python
-- `[GEN]` modern patterns, packaging/deps, async patterns, systems programming (PyO3), CLI tooling
+- `[GEN]` modern patterns, packaging/deps, async patterns, systems programming (PyO3), CLI tooling — DONE (PyO3 planned)
 
 ---
 
@@ -460,15 +460,15 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 
 ## Phase 4: Operational Knowledge (`kb-ops`)
 
-- **4.1 Runbooks:** database, container/k8s, memory leak diagnosis, incident response; `[CAPTURE]` project runbooks
-- **4.2 Checklists:** project bootstrap, code review, pre-deployment, dependency update, post-incident
+- **4.1 Runbooks:** database, container/k8s, memory leak diagnosis, incident response; `[CAPTURE]` project runbooks — incident, memory-leak DONE
+- **4.2 Checklists:** project bootstrap, code review, pre-deployment, dependency update, post-incident — bootstrap, review, pre-deploy DONE
 
 ---
 
 ## Phase 5: Cross-Language Comparisons (`kb-comparisons`)
 
-- **5.1 Pattern translations:** iterators/streams, builder, DI, state machines, CLI parsing
-- **5.2 Ecosystem maps:** HTTP frameworks, ORMs/drivers, serialization, logging/observability
+- **5.1 Pattern translations:** iterators/streams, builder, DI, state machines, CLI parsing — DONE
+- **5.2 Ecosystem maps:** HTTP frameworks, ORMs/drivers, serialization, logging/observability — DONE
 
 ---
 
