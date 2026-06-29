@@ -71,16 +71,16 @@ Knowledge Base Repos
 
 **Why this split:**
 
-| Repo | Why separate | When you'd pull it in |
-|------|-------------|----------------------|
-| `kb-core` | Always relevant, language-agnostic | Every workspace |
-| `kb-go` | Only useful when writing Go | Go project workspaces |
-| `kb-rust` | Only useful when writing Rust | Rust project workspaces |
-| `kb-typescript` | Only useful when writing TypeScript | TS project workspaces |
-| `kb-python` | Only useful when writing Python | Python/ML workspaces |
-| `kb-templates` | Structural scaffolding, not reference | When starting new docs/patterns |
-| `kb-ops` | Operational, not development | Incident response, deployments |
-| `kb-comparisons` | Reference when translating between languages | Multi-language workspaces |
+| Repo             | Why separate                                 | When you'd pull it in           |
+| ---------------- | -------------------------------------------- | ------------------------------- |
+| `kb-core`        | Always relevant, language-agnostic           | Every workspace                 |
+| `kb-go`          | Only useful when writing Go                  | Go project workspaces           |
+| `kb-rust`        | Only useful when writing Rust                | Rust project workspaces         |
+| `kb-typescript`  | Only useful when writing TypeScript          | TS project workspaces           |
+| `kb-python`      | Only useful when writing Python              | Python/ML workspaces            |
+| `kb-templates`   | Structural scaffolding, not reference        | When starting new docs/patterns |
+| `kb-ops`         | Operational, not development                 | Incident response, deployments  |
+| `kb-comparisons` | Reference when translating between languages | Multi-language workspaces       |
 
 ### 0.2 Individual Repo Structure
 
@@ -236,8 +236,8 @@ What is the change we're proposing or have made?
 ## Alternatives Considered
 
 | Alternative | Pros | Cons | Why Rejected |
-|---|---|---|---|
-| ... | ... | ... | ... |
+| ----------- | ---- | ---- | ------------ |
+| ...         | ...  | ...  | ...          |
 
 ## References
 
