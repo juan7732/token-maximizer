@@ -451,10 +451,10 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 ## Phase 3: System Architecture (`kb-core/architecture/`)
 
 - **3.0 System design basics:** checklist, scaling levers, language-selection heuristic — DONE
-- **3.1 Service:** decision framework, communication patterns, decomposition, observability; `[TEMPLATE]` service skeletons (Go, Rust)
-- **3.2 Data:** database selection, caching, event sourcing/CQRS, pipelines, migrations
-- **3.3 Infra:** containers, CI/CD, IaC comparison, local dev; `[TEMPLATE]` Dockerfiles, GH Actions, compose stacks
-- **3.4 Security:** OWASP checklist, authN architecture, secrets, supply chain; `[TEMPLATE]` security headers middleware
+- **3.1 Service:** decision framework, communication patterns, decomposition, observability; `[TEMPLATE]` service skeletons (Go, Rust) — DONE (templates planned)
+- **3.2 Data:** database selection, caching, event sourcing/CQRS, pipelines, migrations — DONE
+- **3.3 Infra:** containers, CI/CD, IaC comparison, local dev; `[TEMPLATE]` Dockerfiles, GH Actions, compose stacks — DONE (templates planned)
+- **3.4 Security:** OWASP checklist, authN architecture, secrets, supply chain; `[TEMPLATE]` security headers middleware — DONE (template planned)
 
 ---
 
