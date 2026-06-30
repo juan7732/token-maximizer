@@ -9,6 +9,9 @@ Runbooks and checklists for building and operating systems. Pull in for ops-heav
 - `checklists/project-bootstrap.md`
 - `checklists/code-review.md`
 - `checklists/pre-deploy.md`
+- `automation/code-generation.md`
+- `automation/editor-productivity.md`
+- `automation/shell-cli.md`
 
 ## When to pull into a workspace
 

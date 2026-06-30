@@ -474,14 +474,14 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 
 ## Phase 6: Local LLM Setup (`kb-ops` or dedicated `kb-local-models`)
 
-- **6.1 Ollama on Apple Silicon:** install, model selection by RAM, quantization, Modelfile library
-- **6.2 IDE integration:** Continue.dev, Neovim, task routing local vs cloud, shell aliases
-- **6.3 Advanced:** llama.cpp, RAG over the knowledge base, tool-use pipeline, LoRA/QLoRA via MLX
+- **6.1 Ollama on Apple Silicon:** install, model selection by RAM, quantization, Modelfile library — DONE
+- **6.2 IDE integration:** Continue.dev, Neovim, task routing local vs cloud, shell aliases — DONE
+- **6.3 Advanced:** llama.cpp, RAG over the knowledge base, tool-use pipeline, LoRA/QLoRA via MLX — DONE
 
 ---
 
 ## Phase 7: Workflow Automation (`kb-templates`, `kb-ops`)
 
-- **7.1 Code generation:** per-language generators, template library
-- **7.2 Editor productivity:** language server mastery, snippet library, linter configs, git hooks
-- **7.3 Shell/CLI:** Makefile/Justfile reference, bash patterns, personal CLI toolkit; `[TEMPLATE]` Justfile starters
+- **7.1 Code generation:** per-language generators, template library — DONE
+- **7.2 Editor productivity:** language server mastery, snippet library, linter configs, git hooks — DONE
+- **7.3 Shell/CLI:** Makefile/Justfile reference, bash patterns, personal CLI toolkit; `[TEMPLATE]` Justfile starters — DONE

@@ -13,6 +13,7 @@ Reusable document templates for the knowledge base. Copy one when starting a new
 - `ecosystem-guide.md` — library/framework selection guide
 - `openapi.md` — OpenAPI 3.1 starter
 - `protobuf.md` — protobuf service starter
+- `justfile-starter.md` — task-runner starter for project root
 
 ## When to pull into a workspace
 
