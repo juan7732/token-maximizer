@@ -2,7 +2,7 @@
 
 **Category:** Local Models
 
-**llama.cpp** — raw control, GGUF models, Metal accel. `llama-server` exposes OpenAI-compatible API. Tune `-ngl` (gpu layers), `-c` (ctx), `-t` (threads). More knobs than Ollama (which wraps it).
+**llama.cpp** - raw control, GGUF models, Metal accel. `llama-server` exposes OpenAI-compatible API. Tune `-ngl` (gpu layers), `-c` (ctx), `-t` (threads). More knobs than Ollama (which wraps it).
 
 **RAG over this KB:**
 1. Chunk markdown (by heading), embed with nomic-embed-text.

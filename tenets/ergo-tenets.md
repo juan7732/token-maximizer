@@ -1,6 +1,6 @@
-# ergo — Design Tenets
+# ergo - Design Tenets
 
-> These tenets guide both what ergo is and how it's built. They are not ranked —
+> These tenets guide both what ergo is and how it's built. They are not ranked -
 > when two tenets pull in different directions, use judgment. But if a decision
 > violates a tenet, it should be conscious and documented, not accidental.
 
@@ -23,7 +23,7 @@ require the fewest keystrokes.
 
 Nothing gets built speculatively. A pattern has to hurt at least twice before
 it gets a dedicated feature. If you can accomplish something by composing
-existing commands, that's not a missing feature — that's the system working.
+existing commands, that's not a missing feature - that's the system working.
 
 This is why workspace templates aren't in v1. This is why `ergo run` exists
 instead of wrapping every possible git or gh operation. Resist the urge to
@@ -33,7 +33,7 @@ preemptively solve problems you haven't had yet.
 
 ## Every command, flag, and config key is a commitment.
 
-Once it's in the API, someone depends on it — including future you with muscle
+Once it's in the API, someone depends on it - including future you with muscle
 memory and aliases built on top. Adding is easy, removing is breaking.
 
 Think before adding. When in doubt, leave it out. A flag you didn't ship is a
@@ -49,7 +49,7 @@ with each other and with the shell. `ergo run --tags=go -- go test ./...` is
 three simple ideas composed into something specific and powerful.
 
 Users build their own workflows through aliases and scripts on top of a stable,
-minimal surface. The tool doesn't need to anticipate every workflow — it needs
+minimal surface. The tool doesn't need to anticipate every workflow - it needs
 to be a reliable building block for all of them.
 
 ---
@@ -57,7 +57,7 @@ to be a reliable building block for all of them.
 ## Complexity is debt. Pay it only when the interest is worth it.
 
 Every feature, every config option, every flag is complexity debt. The bar for
-adding something isn't "would this be useful?" — plenty of things are useful.
+adding something isn't "would this be useful?" - plenty of things are useful.
 The bar is "does this justify the cognitive load it adds to every person who
 reads `--help`?"
 
@@ -85,7 +85,7 @@ Build fast by default. Optimize with intent.
 The user always knows what ergo is doing and what it did.
 
 Sync reports what it cloned, pulled, created, and skipped. Run labels output by
-repo. Errors include context — what was attempted, what went wrong, and what to
+repo. Errors include context - what was attempted, what went wrong, and what to
 try next. No silent failures. No hidden state changes. No magic.
 
 When ergo makes a decision (like skipping a repo because it's already up to
@@ -96,7 +96,7 @@ date), say so. Transparency builds trust; silence breeds suspicion.
 ## TOML is truth.
 
 The configuration file is the single source of truth for a workspace. The
-`.code-workspace` file is a derived artifact — generated, never hand-edited.
+`.code-workspace` file is a derived artifact - generated, never hand-edited.
 The filesystem is a reflection of the config, not the other way around.
 
 If the TOML and the filesystem disagree, the TOML wins and sync reconciles.
@@ -112,7 +112,7 @@ without explicit destructive flags should be safe to do at any time, including
 by accident.
 
 **Sync never deletes.** Removing a repo from the TOML doesn't delete it from
-disk — it just stops being managed. Sync warns about orphaned directories but
+disk - it just stops being managed. Sync warns about orphaned directories but
 leaves them alone.
 
 **Idempotency is a feature.** Running any command twice produces the same
@@ -124,7 +124,7 @@ and confirmation. `ergo remove` modifies the TOML but asks before touching
 the filesystem, defaulting to No.
 
 **Own what you create, respect what you don't.** ergo owns the `.code-workspace`
-file (marked with the `ergo-workspace` key) and overwrites it freely — it's
+file (marked with the `ergo-workspace` key) and overwrites it freely - it's
 derived. ergo created the workspace directory structure but the contents of
 repos and folders belong to the user. The line is clear: ergo owns the
 structure, you own the content.

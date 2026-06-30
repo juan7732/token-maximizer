@@ -1,4 +1,4 @@
-# ergo — Personal Workspace CLI Specification
+# ergo - Personal Workspace CLI Specification
 
 > **Language:** Go
 > **UI:** Bubble Tea TUI + standard CLI
@@ -108,7 +108,7 @@ Default location: `~/ergo-workspaces/` (configurable in global config)
 ```
 ~/ergo-workspaces/
 └── <workspace-name>/
-    ├── <workspace-name>.code-workspace   # Generated — do not edit
+    ├── <workspace-name>.code-workspace   # Generated - do not edit
     ├── repo-a/                           # Cloned repo
     ├── repo-b/                           # Cloned repo
     ├── repo-c/                           # Cloned repo
@@ -206,14 +206,14 @@ git = true                               # ergo will run git init in this folder
 
 **`[[repos]]` fields:**
 
-| Field | Required | Type | Default | Description |
-|-------|----------|------|---------|-------------|
-| `url` | Yes | string | — | Git clone URL |
-| `name` | No | string | Derived from URL (portion before `.git`) | Directory name on disk. Only needed to disambiguate collisions. |
-| `branch` | No | string | `[defaults].default_branch` | Branch to checkout |
-| `tags` | No | string[] | `[]` | Arbitrary tags for filtering |
-| `group` | No | string | `""` | Logical group. One group per repo. |
-| `vscode_settings` | No | table | `{}` | VS Code settings overrides for this folder |
+| Field             | Required | Type     | Default                                  | Description                                                     |
+| ----------------- | -------- | -------- | ---------------------------------------- | --------------------------------------------------------------- |
+| `url`             | Yes      | string   | -                                        | Git clone URL                                                   |
+| `name`            | No       | string   | Derived from URL (portion before `.git`) | Directory name on disk. Only needed to disambiguate collisions. |
+| `branch`          | No       | string   | `[defaults].default_branch`              | Branch to checkout                                              |
+| `tags`            | No       | string[] | `[]`                                     | Arbitrary tags for filtering                                    |
+| `group`           | No       | string   | `""`                                     | Logical group. One group per repo.                              |
+| `vscode_settings` | No       | table    | `{}`                                     | VS Code settings overrides for this folder                      |
 
 **Name derivation:** `https://github.com/juan/handwriting-recognition.git` → `handwriting-recognition`.
 If two repos derive the same name, ergo errors during validation and asks the user to
@@ -221,11 +221,11 @@ provide explicit `name` fields to disambiguate.
 
 **`[[folders]]` fields:**
 
-| Field | Required | Type | Default | Description |
-|-------|----------|------|---------|-------------|
-| `name` | Yes | string | — | Directory name, created inside workspace root |
-| `git` | No | bool | `false` | If true, ergo runs `git init` when creating the folder |
-| `vscode_settings` | No | table | `{}` | VS Code settings overrides for this folder |
+| Field             | Required | Type   | Default | Description                                            |
+| ----------------- | -------- | ------ | ------- | ------------------------------------------------------ |
+| `name`            | Yes      | string | -       | Directory name, created inside workspace root          |
+| `git`             | No       | bool   | `false` | If true, ergo runs `git init` when creating the folder |
+| `vscode_settings` | No       | table  | `{}`    | VS Code settings overrides for this folder             |
 
 **Folders and `ergo run`:** Folders are excluded from `ergo run` by default.
 They are non-runnable unless explicitly included via `--include-folders`.
@@ -409,7 +409,7 @@ ergo sync [workspace-name]
 3. For each `[[folders]]` in TOML:
    - If directory doesn't exist → create it
    - If `git = true` and directory is not a git repo → `git init`
-4. Regenerate `.code-workspace` (smart — only if changed)
+4. Regenerate `.code-workspace` (smart - only if changed)
 5. Warn about orphaned directories (exist on disk but not in TOML)
 6. Display summary
 
@@ -419,7 +419,7 @@ Sync warns about them but does not touch them.
 **Flags:**
 - `--force`: Delete any repo or folder on disk that is not in the TOML.
   Requires confirmation prompt before proceeding.
-- `--add`: Reverse sync — scan the workspace directory and `.code-workspace`
+- `--add`: Reverse sync - scan the workspace directory and `.code-workspace`
   for repos/folders not in the TOML and add them. Only supports entries that
   are direct children of the workspace root (no nested paths). Prompts for
   confirmation before modifying the TOML.
@@ -441,17 +441,17 @@ ergo status [workspace-name]
 ┌─────────────────────────┬──────────┬────────┬─────────┬───────────────┐
 │ Repo                    │ Branch   │ Status │ Behind  │ Group         │
 ├─────────────────────────┼──────────┼────────┼─────────┼───────────────┤
-│ handwriting-recognition │ main     │ clean  │ —       │ ml            │
+│ handwriting-recognition │ main     │ clean  │ -       │ ml            │
 │ ergo                    │ feat/tui │ dirty  │ 3       │ tools         │
 │ kb-core                 │ main     │ clean  │ 1       │ documentation │
-│ kb-python               │ main     │ clean  │ —       │ documentation │
+│ kb-python               │ main     │ clean  │ -       │ documentation │
 └─────────────────────────┴──────────┴────────┴─────────┴───────────────┘
 ```
 
 **Status values:**
-- `clean` — no uncommitted changes
-- `dirty` — uncommitted changes present
-- `uncloned` — defined in TOML but not yet on disk
+- `clean` - no uncommitted changes
+- `dirty` - uncommitted changes present
+- `uncloned` - defined in TOML but not yet on disk
 
 **Outside a workspace (in a standalone repo):**
 Shows status for just that one repo.
@@ -611,8 +611,8 @@ ergo list
 ```
 
 **Status values:**
-- `synced` — workspace directory exists on disk
-- `not synced` — TOML exists but workspace hasn't been materialized yet
+- `synced` - workspace directory exists on disk
+- `not synced` - TOML exists but workspace hasn't been materialized yet
 
 ---
 
@@ -641,7 +641,7 @@ ergo validate [workspace-name]
 **Output on failure:**
 ```
 ✗ ml-projects.toml has 2 issues:
-  Line 12: repos[2] and repos[4] both derive name "utils" — add explicit name to disambiguate
+  Line 12: repos[2] and repos[4] both derive name "utils" - add explicit name to disambiguate
   Line 18: folders[0] name "ergo" collides with repos[1]
 ```
 
@@ -659,11 +659,11 @@ ergo show <group|tag|all> [workspace-name]
 ```
 
 **Behavior:**
-1. `ergo show <group-name>` — regenerate `.code-workspace` with only repos matching that group,
+1. `ergo show <group-name>` - regenerate `.code-workspace` with only repos matching that group,
    plus all folders. Records the filter in the `"ergo"` object.
-2. `ergo show --tag=<tag>` — same but filter by tag.
-3. `ergo show all` — regenerate `.code-workspace` with everything. Clears any active filter.
-4. `ergo show` (no argument) — TUI to select groups/tags to show.
+2. `ergo show --tag=<tag>` - same but filter by tag.
+3. `ergo show all` - regenerate `.code-workspace` with everything. Clears any active filter.
+4. `ergo show` (no argument) - TUI to select groups/tags to show.
 
 **The root folder is always included regardless of filter.**
 
@@ -785,14 +785,14 @@ ergo/
 
 ### Key Dependencies
 
-| Package | Purpose |
-|---------|---------|
-| `github.com/spf13/cobra` | CLI command framework |
-| `github.com/charmbracelet/bubbletea` | TUI framework |
-| `github.com/charmbracelet/lipgloss` | TUI styling |
-| `github.com/charmbracelet/bubbles` | TUI components (tables, text inputs, spinners) |
-| `github.com/BurntSushi/toml` | TOML parsing |
-| `github.com/gobwas/glob` | Glob pattern matching for `--name` |
+| Package                              | Purpose                                        |
+| ------------------------------------ | ---------------------------------------------- |
+| `github.com/spf13/cobra`             | CLI command framework                          |
+| `github.com/charmbracelet/bubbletea` | TUI framework                                  |
+| `github.com/charmbracelet/lipgloss`  | TUI styling                                    |
+| `github.com/charmbracelet/bubbles`   | TUI components (tables, text inputs, spinners) |
+| `github.com/BurntSushi/toml`         | TOML parsing                                   |
+| `github.com/gobwas/glob`             | Glob pattern matching for `--name`             |
 
 ### Git Operations
 
@@ -885,19 +885,19 @@ interact with this file directly.
 
 ## 9. Error Handling
 
-| Scenario | Behavior |
-|----------|----------|
-| `git` not on PATH | Error: "git is required" |
-| `gh` not on PATH | Error: "gh is required" |
-| `code` not on PATH | Error: "code CLI is required" |
-| Clone fails (auth, network) | Log error, continue with other repos, report at end |
-| TOML parse error | Error with line number and context |
-| Workspace dir already exists (`open`) | Adopt — sync against it |
-| Repo dir exists but isn't the expected repo | Warn, skip, report |
-| Duplicate derived repo names | Error during validate, prompt for explicit names |
-| No workspace match (partial name) | TUI with filtered results |
-| No workspace match at all | Error: "No workspace matching '<input>'" |
-| Orphaned directory on disk | Warn during sync, never delete without `--force` |
+| Scenario                                    | Behavior                                            |
+| ------------------------------------------- | --------------------------------------------------- |
+| `git` not on PATH                           | Error: "git is required"                            |
+| `gh` not on PATH                            | Error: "gh is required"                             |
+| `code` not on PATH                          | Error: "code CLI is required"                       |
+| Clone fails (auth, network)                 | Log error, continue with other repos, report at end |
+| TOML parse error                            | Error with line number and context                  |
+| Workspace dir already exists (`open`)       | Adopt - sync against it                             |
+| Repo dir exists but isn't the expected repo | Warn, skip, report                                  |
+| Duplicate derived repo names                | Error during validate, prompt for explicit names    |
+| No workspace match (partial name)           | TUI with filtered results                           |
+| No workspace match at all                   | Error: "No workspace matching '<input>'"            |
+| Orphaned directory on disk                  | Warn during sync, never delete without `--force`    |
 
 ---
 
@@ -913,7 +913,7 @@ over repos and stores the output in a known location.
 **How the architecture supports it:** Each `[[repos]]` entry could gain a
 `[repos.docs]` table with doc generation config. The generated docs land in
 a folder within the workspace root. The `.code-workspace` file could optionally
-include or exclude the docs folder — `ergo show` already supports dynamic
+include or exclude the docs folder - `ergo show` already supports dynamic
 regeneration of the folder list, so toggling doc visibility fits naturally.
 
 ### 10.2 Terminal Agent Integration
@@ -1033,11 +1033,11 @@ $ ergo status
 ┌─────────────────────────┬──────────┬────────┬────────┬───────────────┐
 │ Repo                    │ Branch   │ Status │ Behind │ Group         │
 ├─────────────────────────┼──────────┼────────┼────────┼───────────────┤
-│ handwriting-recognition │ main     │ clean  │ —      │ ml            │
+│ handwriting-recognition │ main     │ clean  │ -      │ ml            │
 │ ergo                    │ feat/tui │ dirty  │ 3      │ tools         │
 │ kb-core                 │ main     │ clean  │ 1      │ documentation │
-│ kb-python               │ main     │ clean  │ —      │ documentation │
-│ task-pad                │ main     │ clean  │ —      │ ml            │
+│ kb-python               │ main     │ clean  │ -      │ documentation │
+│ task-pad                │ main     │ clean  │ -      │ ml            │
 └─────────────────────────┴──────────┴────────┴────────┴───────────────┘
 
 # Run tests across only ml repos (documentation group is excluded by default)

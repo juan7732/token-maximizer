@@ -16,6 +16,6 @@ type Result<T> = { ok: true; value: T } | { ok: false; error: string };
 type ID = string & { readonly __id: unique symbol };
 ```
 
-**Gotchas:** `as` lies—prefer narrowing; types vanish at runtime (validate); avoid `enum`, use unions; `strict` always on.
+**Gotchas:** `as` lies-prefer narrowing; types vanish at runtime (validate); avoid `enum`, use unions; `strict` always on.
 
 **See also:** validation.md, concurrency.md, error-handling.md.

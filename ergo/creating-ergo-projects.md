@@ -12,7 +12,7 @@
 ## Core philosophy
 
 **Repos are the unit of scope.** A repo is a release boundary, a CI boundary,
-a permissions boundary, and — most importantly for AI workflows — a
+a permissions boundary, and - most importantly for AI workflows - a
 **context boundary**. Smaller, focused repos give an AI agent a tractable
 surface area. Mega-monorepos drown agents in irrelevant code.
 
@@ -45,7 +45,7 @@ governance overhead.
 
 ### Keep in one repo when…
 
-- The code is **inseparable** — one binary, one deploy, one test suite.
+- The code is **inseparable** - one binary, one deploy, one test suite.
 - Splitting would force you to invent a coordination protocol (versioned
   internal API, release-pinning dance) for code that's actually coupled.
 - The "second repo" is just a folder of helpers used in exactly one place.
@@ -119,7 +119,7 @@ independently by other projects (and by AI agents scoped to one language).
 
 ## The playbook
 
-### Step 1 — Sketch the seams
+### Step 1 - Sketch the seams
 
 Before typing anything, write down (in a scratch file or just out loud):
 
@@ -131,7 +131,7 @@ Before typing anything, write down (in a scratch file or just out loud):
 Each distinct answer is a candidate repo. Collapse aggressively if the
 distinction is theoretical rather than concrete.
 
-### Step 2 — Create the repos on GitHub
+### Step 2 - Create the repos on GitHub
 
 Use `gh` to batch-create. Naming convention: `<project>-<role>` so they
 sort together and the role is obvious.
@@ -148,7 +148,7 @@ done
 Tips:
 - Use `--public` unless there's a real reason for private. Personal repos
   benefit from being indexable.
-- Skip `--clone` here — let ergo handle materialization.
+- Skip `--clone` here - let ergo handle materialization.
 - Skip `--add-readme`; you'll commit a real one in step 4.
 - Apply topics so they're discoverable as a set:
   ```bash
@@ -157,7 +157,7 @@ Tips:
   done
   ```
 
-### Step 3 — Define the ergo workspace
+### Step 3 - Define the ergo workspace
 
 ```bash
 ergo init foo
@@ -184,7 +184,7 @@ ergo open foo
 
 This clones everything, generates `.code-workspace`, and opens VS Code.
 
-### Step 4 — Seed each repo
+### Step 4 - Seed each repo
 
 Inside the workspace, scaffold each repo with the bare minimum:
 
@@ -210,16 +210,16 @@ ergo run -- git commit -m "chore: initial scaffolding"
 ergo run -- git push -u origin main
 ```
 
-### Step 5 — Give each repo a `.ergo/` command surface
+### Step 5 - Give each repo a `.ergo/` command surface
 
 The single most useful convention for `ergo run` is **uniform command
 names across heterogeneous repos**. If every repo answers to `just build`,
 `just test`, and `just run`, then `ergo run -- just test` does the right
-thing everywhere — even when one repo is Go, another is TypeScript, and a
+thing everywhere - even when one repo is Go, another is TypeScript, and a
 third is a Python notebook environment.
 
 Give every repo a `.ergo/` folder containing a `justfile` (or `Makefile`,
-or shell scripts — pick one and stay consistent) with the repo-local
+or shell scripts - pick one and stay consistent) with the repo-local
 recipe for each verb:
 
 ```
@@ -253,7 +253,7 @@ ergo run -- just --justfile .ergo/justfile build
 ergo run -- just --justfile .ergo/justfile test
 ```
 
-Or, simpler — put a top-level `justfile` in each repo that delegates to
+Or, simpler - put a top-level `justfile` in each repo that delegates to
 `.ergo/`, so the workspace command stays clean:
 
 ```bash
@@ -268,7 +268,7 @@ Repos without an `.ergo/` folder simply opt out; `ergo run` skips repos
 where the command fails (use `--fail-fast` only when you want strict
 behavior).
 
-### Step 6 — Set up AI context (the multiplier)
+### Step 6 - Set up AI context (the multiplier)
 
 This is where the multi-repo + ergo combination pays off. The workspace
 gives an AI agent **exactly one window** with **exactly the repos it
@@ -285,10 +285,10 @@ ergo add folder ai-notes --git
 ```
 
 Inside `ai-notes/`, keep:
-- `architecture.md` — how the repos relate, the data flow, the deploy story.
-- `decisions/` — one ADR per real decision.
-- `prompts/` — reusable prompt scaffolds (e.g. "review a PR in this codebase").
-- `glossary.md` — domain terms the agent should know.
+- `architecture.md` - how the repos relate, the data flow, the deploy story.
+- `decisions/` - one ADR per real decision.
+- `prompts/` - reusable prompt scaffolds (e.g. "review a PR in this codebase").
+- `glossary.md` - domain terms the agent should know.
 
 **Use `ergo show` to scope agent sessions.** When you ask an agent to
 work on the SDK, run `ergo show clients` first. The agent sees only SDK
@@ -304,10 +304,10 @@ ergo run --tags=go -- go vet ./...     # lint everything
 ergo run -- gh pr status               # open PRs across the project
 ```
 
-### Step 7 — Document the project inside `ai-notes/`
+### Step 7 - Document the project inside `ai-notes/`
 
 Drop a `README.md` inside `ai-notes/` that describes the *project as a
-whole* — what each repo is, how they fit together, and the common
+whole* - what each repo is, how they fit together, and the common
 workspace-level commands. Each repo's own README stays scoped to that
 repo only; the workspace-level view lives with the rest of the agent
 context.
@@ -318,10 +318,10 @@ context.
 Multi-repo project. Open with `ergo open foo`.
 
 ## Repos
-- `foo-api` — backend service (Go)
-- `foo-sdk-ts` — TypeScript client
-- `foo-sdk-go` — Go client
-- `foo-examples` — runnable demos
+- `foo-api` - backend service (Go)
+- `foo-sdk-ts` - TypeScript client
+- `foo-sdk-go` - Go client
+- `foo-examples` - runnable demos
 
 ## Common tasks
 - Build everything: `ergo run -- just build`
@@ -335,7 +335,7 @@ prompts, glossary) so an agent gets the whole picture from one folder.
 
 ---
 
-## Reference repos — bringing the world into your workspace
+## Reference repos - bringing the world into your workspace
 
 One of ergo's quietest superpowers is dropping **third-party repos** into
 a workspace as read-only context. This is invaluable when:
@@ -394,7 +394,7 @@ untouched. Re-add anytime with `ergo add repo <url>`.
 
 > **Tip:** keep a `ai-notes/references/INDEX.md` listing which reference
 > repos are currently checked out and why. Reference repos drift in and
-> out — the index gives future-you (and any agent session) a fast answer
+> out - the index gives future-you (and any agent session) a fast answer
 > to "why is this here?"
 
 ---
@@ -403,13 +403,13 @@ untouched. Re-add anytime with `ergo add repo <url>`.
 
 The "context boundary" lens deserves its own treatment:
 
-| Scenario | Heuristic |
-|---|---|
-| Agent needs to read all code to make sense of anything → | Probably one repo. |
-| Agent does great in one part but gets confused crossing into another → | Split at the seam. |
-| You routinely tell an agent "ignore the `infra/` folder" → | `infra/` should be its own repo, scoped out via `ergo show`. |
-| Two areas have different code styles / linters / test frameworks → | Split. The conflicting conventions confuse agents too. |
-| You're scared to let an agent touch one folder (prod infra, secrets, generated code) → | Split, and don't include in the agent's workspace view. |
+| Scenario                                                                               | Heuristic                                                    |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Agent needs to read all code to make sense of anything →                               | Probably one repo.                                           |
+| Agent does great in one part but gets confused crossing into another →                 | Split at the seam.                                           |
+| You routinely tell an agent "ignore the `infra/` folder" →                             | `infra/` should be its own repo, scoped out via `ergo show`. |
+| Two areas have different code styles / linters / test frameworks →                     | Split. The conflicting conventions confuse agents too.       |
+| You're scared to let an agent touch one folder (prod infra, secrets, generated code) → | Split, and don't include in the agent's workspace view.      |
 
 ---
 
@@ -461,7 +461,7 @@ gh repo delete owner/foo-cron --yes  # from GitHub (irreversible)
 
 ---
 
-## Quick reference — full bootstrap
+## Quick reference - full bootstrap
 
 ```bash
 PROJECT=foo

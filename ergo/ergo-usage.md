@@ -1,4 +1,4 @@
-# ergo — Usage Guide
+# ergo - Usage Guide
 
 `ergo` manages multi-repo development workspaces. It clones repos, organizes
 them into a working directory, generates VS Code `.code-workspace` files, and
@@ -40,7 +40,7 @@ ergo detects the workspace from the current working directory.
 Create a new workspace definition via a guided TUI.
 
 Writes `~/.ergo/workspaces/<workspace-name>.toml` with the repos and folders
-you configure. Does **not** create directories or clone anything — run
+you configure. Does **not** create directories or clone anything - run
 `ergo open` to materialize the workspace.
 
 ---
@@ -53,7 +53,7 @@ Open a workspace in VS Code, creating it on disk if it doesn't exist yet.
   `.code-workspace` file, then launches VS Code.
 - **Subsequent use:** regenerates `.code-workspace` only if its content has
   changed (smart regeneration), then launches VS Code. Does **not** re-clone
-  or pull — use `ergo sync` for that.
+  or pull - use `ergo sync` for that.
 
 **Flags**
 
@@ -137,7 +137,7 @@ ergo run ml-projects -- git pull
 or `--all`.
 
 When run inside a standalone git repo (outside any ergo workspace), the
-command runs in that repo only — filter flags and group exclusion are ignored.
+command runs in that repo only - filter flags and group exclusion are ignored.
 
 **Flags**
 
@@ -166,7 +166,7 @@ ergo show all          # clear filter, restore full view
 ergo show              # interactive group/tag selector
 ```
 
-Modifies `.code-workspace` only — never the TOML or filesystem. The workspace
+Modifies `.code-workspace` only - never the TOML or filesystem. The workspace
 must be materialized on disk first (`ergo open`). Operates on the workspace
 detected from the current working directory.
 
@@ -219,7 +219,7 @@ Remove one or more repos or folders from a workspace definition.
 Without subcommands, launches a multi-select TUI. Use `repo` or `folder`
 subcommands for non-interactive shorthand.
 
-By default, only the TOML entry is removed — files on disk are untouched.
+By default, only the TOML entry is removed - files on disk are untouched.
 Use `--force` to also delete the directory from disk (requires confirmation).
 
 ```sh

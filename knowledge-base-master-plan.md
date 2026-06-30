@@ -4,7 +4,7 @@
 > into any project workspace via ergo, providing ambient AI context and reducing LLM
 > dependency over time.
 > **Core Languages:** Go · Rust · TypeScript · Python
-> **Architecture:** Multi-repo, composed via ergo workspaces. Not a monolith you visit — a
+> **Architecture:** Multi-repo, composed via ergo workspaces. Not a monolith you visit - a
 > context layer you inhabit.
 > **Token Strategy:** Front-load expensive generation now; harvest value indefinitely.
 
@@ -16,30 +16,30 @@ content catalog (Phases 2–7) is preserved below, remapped onto the multi-repo 
 
 ## How to Use This Document
 
-Each phase contains **modules** with concrete **deliverables** — artifacts you generate
+Each phase contains **modules** with concrete **deliverables** - artifacts you generate
 and commit to the appropriate repo. You don't need to complete phases sequentially. Pick
 the modules most relevant to your current projects and work outward. The numbering reflects
 dependency order, not priority.
 
 Every deliverable is tagged:
 
-- `[GEN]` — Generate with LLM assistance (spend tokens on these now)
-- `[BUILD]` — Hands-on implementation work (light LLM use)
-- `[CAPTURE]` — Extract patterns from your actual project work into the knowledge base
-- `[TEMPLATE]` — Reusable boilerplate you'll copy-paste forever
+- `[GEN]` - Generate with LLM assistance (spend tokens on these now)
+- `[BUILD]` - Hands-on implementation work (light LLM use)
+- `[CAPTURE]` - Extract patterns from your actual project work into the knowledge base
+- `[TEMPLATE]` - Reusable boilerplate you'll copy-paste forever
 
 ---
 
 ## Tenet: Incubate flat, graduate to repos
 
-Content starts life in **flat folders inside this repo** — one folder per future
+Content starts life in **flat folders inside this repo** - one folder per future
 repo (`kb-core/`, `kb-go/`, `kb-templates/`, etc.). While a domain is being
 drafted, its markdown lives in its folder here. This keeps early work in one
 place: one window, easy cross-linking, no premature repo sprawl.
 
 When a folder is ready, **split it out into its own repo** and pull it back as
 an ergo reference repo (`--group=reference --tags=kb,reference`). Not a git
-submodule — ergo is the composition layer, so reference repos give the same
+submodule - ergo is the composition layer, so reference repos give the same
 single-window context without the pinned-SHA and detached-head friction
 submodules bring. The folder leaves this repo; the dedicated repo joins the
 workspace.
@@ -50,7 +50,7 @@ its own. Create the GitHub repos as folders graduate, not all up front.
 
 ---
 
-## Phase 0: Foundation — The Repo Architecture
+## Phase 0: Foundation - The Repo Architecture
 
 ### 0.1 Repo Topology
 
@@ -150,7 +150,7 @@ kb-core/
 - `[BUILD]` Create the knowledge-base ergo workspace TOML (see §0.5)
 - `[BUILD]` Create ergo workspace TOMLs for active projects that include relevant kb repos
 
-### 0.4 Templates Repo (`kb-templates`) — DONE
+### 0.4 Templates Repo (`kb-templates`) - DONE
 
 ```
 kb-templates/
@@ -274,11 +274,11 @@ Situation where you'd reach for this snippet.
 ```
 
 `[GEN]` **Remaining templates:** runbook, comparison, idiom, ecosystem-guide
-(similar structure — frontmatter prompts, consistent sections, `[CAPTURE]` placeholders)
+(similar structure - frontmatter prompts, consistent sections, `[CAPTURE]` placeholders)
 
 ### 0.5 Ergo Workspace Configurations
 
-**The knowledge base authoring workspace** — for when you're writing/editing
+**The knowledge base authoring workspace** - for when you're writing/editing
 knowledge base content:
 
 ```toml
@@ -341,7 +341,7 @@ name = "scratch"
 purpose = "Drafting space for new patterns and content"
 ```
 
-**Example project workspace** — how kb repos compose into a real project:
+**Example project workspace** - how kb repos compose into a real project:
 
 ```toml
 # ~/.ergo/workspaces/handwriting-recognition.toml
@@ -396,11 +396,11 @@ Notice: this workspace includes `kb-core` and `kb-python` but NOT `kb-go`,
 *Highest-leverage content. Lives in `kb-core` because it applies across all languages.
 Pull this repo into every workspace.*
 
-### 1.1 Error Handling (`kb-core/patterns/error-handling/`) — DONE
+### 1.1 Error Handling (`kb-core/patterns/error-handling/`) - DONE
 
-- `[GEN]` **philosophy.md** — The spectrum from exceptions to Result types to error values. Not syntax — *when* to use which strategy and *why*. Decision framework based on project type, team size, and reliability requirements.
-- `[GEN]` **taxonomy.md** — Reusable error classification: transient vs. permanent, retryable vs. fatal, user-facing vs. internal, expected vs. unexpected. Includes a template for project-specific taxonomies.
-- `[GEN]` **propagation.md** — How errors flow through layers (handler → service → repository → external) with diagrams. Wrapping, context enrichment, boundary translation.
+- `[GEN]` **philosophy.md** - The spectrum from exceptions to Result types to error values. Not syntax - *when* to use which strategy and *why*. Decision framework based on project type, team size, and reliability requirements.
+- `[GEN]` **taxonomy.md** - Reusable error classification: transient vs. permanent, retryable vs. fatal, user-facing vs. internal, expected vs. unexpected. Includes a template for project-specific taxonomies.
+- `[GEN]` **propagation.md** - How errors flow through layers (handler → service → repository → external) with diagrams. Wrapping, context enrichment, boundary translation.
 
 Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 - `[GEN]` **Go:** sentinel errors, custom error types, `errors.Is`/`errors.As`, wrapping, panic conventions
@@ -408,23 +408,23 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 - `[GEN]` **TypeScript:** discriminated unions, `neverthrow`, error boundaries, Zod validation errors
 - `[GEN]` **Python:** exception hierarchies, `@contextmanager`, structured logging, `ExceptionGroup`
 
-### 1.2 Concurrency (`kb-core/patterns/concurrency/`) — DONE
+### 1.2 Concurrency (`kb-core/patterns/concurrency/`) - DONE
 
-- `[GEN]` **mental-models.md** — threads vs. green threads vs. async, shared state vs. message passing, structured concurrency, backpressure, cancellation
-- `[GEN]` **patterns.md** — fan-out/fan-in, pipeline, worker pool, pub/sub, rate limiter, circuit breaker, with idiomatic implementations across all four languages (code in `kb-<lang>/snippets/`)
-- `[GEN]` **debugging.md** — deadlock/race condition symptoms, tools, prevention
+- `[GEN]` **mental-models.md** - threads vs. green threads vs. async, shared state vs. message passing, structured concurrency, backpressure, cancellation
+- `[GEN]` **patterns.md** - fan-out/fan-in, pipeline, worker pool, pub/sub, rate limiter, circuit breaker, with idiomatic implementations across all four languages (code in `kb-<lang>/snippets/`)
+- `[GEN]` **debugging.md** - deadlock/race condition symptoms, tools, prevention
 - Per-language: Go (goroutines, channels, `errgroup`, leaks), Rust (`tokio`, `Arc<Mutex>`, `Send`/`Sync`, `rayon`), TS (event loop, `Promise.all*`, workers, `AbortController`), Python (`asyncio`, GIL, `multiprocessing`, `trio`)
 
-### 1.3 API Design (`kb-core/patterns/api-design/`) — DONE
+### 1.3 API Design (`kb-core/patterns/api-design/`) - DONE
 
 - `[GEN]` REST checklist (naming, versioning, pagination, idempotency); gRPC guide; GraphQL decision framework; authN/authZ patterns (JWT, OAuth2, mTLS, RBAC vs ABAC)
 - `[TEMPLATE]` OpenAPI 3.1 starter, protobuf service starter
 
-### 1.4 Data Modeling (`kb-core/patterns/data-modeling/`) — DONE
+### 1.4 Data Modeling (`kb-core/patterns/data-modeling/`) - DONE
 
 - `[GEN]` modeling decision tree, schema evolution, per-language validation (Go tags, serde+validator, Zod, Pydantic), serialization comparison
 
-### 1.5 Testing Strategy (`kb-core/patterns/testing-strategy/`) — DONE
+### 1.5 Testing Strategy (`kb-core/patterns/testing-strategy/`) - DONE
 
 - `[GEN]` testing pyramid, test doubles taxonomy, integration isolation; per-language toolkits go in `kb-<lang>/testing/`
 - `[TEMPLATE]` test file starters per language
@@ -434,54 +434,54 @@ Per-language implementation goes in `kb-<lang>/idioms/error-handling.md`:
 ## Phase 2: Language-Specific Deep Dives (`kb-go`, `kb-rust`, `kb-typescript`, `kb-python`)
 
 ### 2.1 Go
-- `[GEN]` idioms compendium, concurrency cookbook, performance guide, project layout, generics patterns — DONE
+- `[GEN]` idioms compendium, concurrency cookbook, performance guide, project layout, generics patterns - DONE
 - `[CAPTURE]` lessons learned from Go projects
 
 ### 2.2 Rust
-- `[GEN]` ownership mental model, trait design patterns, error design playbook, async deep-dive, FFI/unsafe, performance, cargo ecosystem map — DONE
+- `[GEN]` ownership mental model, trait design patterns, error design playbook, async deep-dive, FFI/unsafe, performance, cargo ecosystem map - DONE
 
 ### 2.3 TypeScript
-- `[GEN]` type system deep-dive, patterns for scale, runtime vs compile-time safety, Node ops, frontend architecture, performance — DONE (frontend arch planned)
+- `[GEN]` type system deep-dive, patterns for scale, runtime vs compile-time safety, Node ops, frontend architecture, performance - DONE (frontend arch planned)
 
 ### 2.4 Python
-- `[GEN]` modern patterns, packaging/deps, async patterns, systems programming (PyO3), CLI tooling — DONE (PyO3 planned)
+- `[GEN]` modern patterns, packaging/deps, async patterns, systems programming (PyO3), CLI tooling - DONE (PyO3 planned)
 
 ---
 
 ## Phase 3: System Architecture (`kb-core/architecture/`)
 
-- **3.0 System design basics:** checklist, scaling levers, language-selection heuristic — DONE
-- **3.1 Service:** decision framework, communication patterns, decomposition, observability; `[TEMPLATE]` service skeletons (Go, Rust) — DONE (templates planned)
-- **3.2 Data:** database selection, caching, event sourcing/CQRS, pipelines, migrations — DONE
-- **3.3 Infra:** containers, CI/CD, IaC comparison, local dev; `[TEMPLATE]` Dockerfiles, GH Actions, compose stacks — DONE (templates planned)
-- **3.4 Security:** OWASP checklist, authN architecture, secrets, supply chain; `[TEMPLATE]` security headers middleware — DONE (template planned)
+- **3.0 System design basics:** checklist, scaling levers, language-selection heuristic - DONE
+- **3.1 Service:** decision framework, communication patterns, decomposition, observability; `[TEMPLATE]` service skeletons (Go, Rust) - DONE (templates planned)
+- **3.2 Data:** database selection, caching, event sourcing/CQRS, pipelines, migrations - DONE
+- **3.3 Infra:** containers, CI/CD, IaC comparison, local dev; `[TEMPLATE]` Dockerfiles, GH Actions, compose stacks - DONE (templates planned)
+- **3.4 Security:** OWASP checklist, authN architecture, secrets, supply chain; `[TEMPLATE]` security headers middleware - DONE (template planned)
 
 ---
 
 ## Phase 4: Operational Knowledge (`kb-ops`)
 
-- **4.1 Runbooks:** database, container/k8s, memory leak diagnosis, incident response; `[CAPTURE]` project runbooks — incident, memory-leak DONE
-- **4.2 Checklists:** project bootstrap, code review, pre-deployment, dependency update, post-incident — bootstrap, review, pre-deploy DONE
+- **4.1 Runbooks:** database, container/k8s, memory leak diagnosis, incident response; `[CAPTURE]` project runbooks - incident, memory-leak DONE
+- **4.2 Checklists:** project bootstrap, code review, pre-deployment, dependency update, post-incident - bootstrap, review, pre-deploy DONE
 
 ---
 
 ## Phase 5: Cross-Language Comparisons (`kb-comparisons`)
 
-- **5.1 Pattern translations:** iterators/streams, builder, DI, state machines, CLI parsing — DONE
-- **5.2 Ecosystem maps:** HTTP frameworks, ORMs/drivers, serialization, logging/observability — DONE
+- **5.1 Pattern translations:** iterators/streams, builder, DI, state machines, CLI parsing - DONE
+- **5.2 Ecosystem maps:** HTTP frameworks, ORMs/drivers, serialization, logging/observability - DONE
 
 ---
 
 ## Phase 6: Local LLM Setup (`kb-ops` or dedicated `kb-local-models`)
 
-- **6.1 Ollama on Apple Silicon:** install, model selection by RAM, quantization, Modelfile library — DONE
-- **6.2 IDE integration:** Continue.dev, Neovim, task routing local vs cloud, shell aliases — DONE
-- **6.3 Advanced:** llama.cpp, RAG over the knowledge base, tool-use pipeline, LoRA/QLoRA via MLX — DONE
+- **6.1 Ollama on Apple Silicon:** install, model selection by RAM, quantization, Modelfile library - DONE
+- **6.2 IDE integration:** Continue.dev, Neovim, task routing local vs cloud, shell aliases - DONE
+- **6.3 Advanced:** llama.cpp, RAG over the knowledge base, tool-use pipeline, LoRA/QLoRA via MLX - DONE
 
 ---
 
 ## Phase 7: Workflow Automation (`kb-templates`, `kb-ops`)
 
-- **7.1 Code generation:** per-language generators, template library — DONE
-- **7.2 Editor productivity:** language server mastery, snippet library, linter configs, git hooks — DONE
-- **7.3 Shell/CLI:** Makefile/Justfile reference, bash patterns, personal CLI toolkit; `[TEMPLATE]` Justfile starters — DONE
+- **7.1 Code generation:** per-language generators, template library - DONE
+- **7.2 Editor productivity:** language server mastery, snippet library, linter configs, git hooks - DONE
+- **7.3 Shell/CLI:** Makefile/Justfile reference, bash patterns, personal CLI toolkit; `[TEMPLATE]` Justfile starters - DONE

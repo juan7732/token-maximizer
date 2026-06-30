@@ -8,7 +8,7 @@
 ## Authentication & Setup
 
 ```bash
-# Login (browser-based OAuth — do this once)
+# Login (browser-based OAuth - do this once)
 gh auth login
 
 # Verify auth status
@@ -44,7 +44,7 @@ cd existing-project
 git init
 gh repo create --public --source=. --push
 
-# Create repo without cloning (useful for ergo workflows —
+# Create repo without cloning (useful for ergo workflows -
 # create on GitHub, let ergo sync handle the clone)
 gh repo create kb-core --public --description "Cross-cutting patterns and architecture"
 
@@ -74,7 +74,7 @@ gh repo edit --default-branch main
 # Add topics (useful for discovery)
 gh repo edit --add-topic go,cli,workspace-management
 
-# Delete repo (careful — no undo)
+# Delete repo (careful - no undo)
 gh repo delete owner/repo --yes
 ```
 
@@ -375,5 +375,5 @@ gh repo create "$NAME" --public --description "$DESC"
 # Shows: branch | dirty | behind | CI status
 
 # ergo run --group=knowledge -- gh issue list
-# Already works with ergo run — no wrapping needed
+# Already works with ergo run - no wrapping needed
 ```

@@ -13,6 +13,6 @@ const r = CreateUser.safeParse(body);
 if (!r.success) return badRequest(r.error.issues);
 ```
 
-**Gotchas:** TS types vanish at runtime—validate input; `infer` keeps one source of truth; `.strict()` rejects extras; brand types for validated.
+**Gotchas:** TS types vanish at runtime-validate input; `infer` keeps one source of truth; `.strict()` rejects extras; brand types for validated.
 
 **See also:** kb-core data-modeling; kb-go/rust/python.
