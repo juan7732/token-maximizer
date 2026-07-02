@@ -27,5 +27,9 @@ Incubator and index for a composable knowledge base. Drafts live as flat folders
 
 - Markdown only. No invented metrics. No em-dashes.
 - Write tight: keep substance, drop filler. Prefer bullets and tables over paragraphs.
+- Plain prose. No "it's not just X, it's Y" constructions or other AI-typical contrastive filler.
+- Code evidence (file:line) must pin its source commit in the file header (`Source: repo @ hash`). If the source cannot be pinned or will not be available to consuming workspaces, drop the evidence rather than misguide a future agent.
+- Captured content beats generated content. A capture earns its place only if it is opinionated, non-obvious to a strong model, and transferable (see `kb-templates/capture.md`).
+- When writing code (snippets, templates, tooling), mark judgment calls with the `DECISION/REVIEW/SPEC/TODO` comment taxonomy (see `kb-agent-practices/decision-hygiene.md`).
 - A folder maps to one future repo; keep it self-contained so it can graduate cleanly.
 - Don't create the GitHub repo until the folder is ready to stand alone.
