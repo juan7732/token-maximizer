@@ -66,7 +66,10 @@ Knowledge Base Repos
 ├── kb-python                  # Python idioms, snippets, ecosystem, testing patterns
 ├── kb-templates               # ADR, pattern, snippet, runbook, comparison templates
 ├── kb-ops                     # Checklists, runbooks, operational knowledge
-└── kb-comparisons             # Cross-language Rosetta Stone translations
+├── kb-comparisons             # Cross-language Rosetta Stone translations
+├── kb-opinionated-react       # Frontend patterns and tool choices that work
+├── kb-opinionated-cli         # CLI design patterns distilled from real codebases
+└── kb-agent-practices         # How to work with coding agents to produce good results
 ```
 
 **Why this split:**
@@ -81,6 +84,9 @@ Knowledge Base Repos
 | `kb-templates`   | Structural scaffolding, not reference        | When starting new docs/patterns |
 | `kb-ops`         | Operational, not development                 | Incident response, deployments  |
 | `kb-comparisons` | Reference when translating between languages | Multi-language workspaces       |
+| `kb-opinionated-react` | Personal frontend opinions, not neutral reference | Frontend project workspaces |
+| `kb-opinionated-cli` | Distilled CLI design opinions | Projects with a CLI surface |
+| `kb-agent-practices` | Process patterns for agent-driven work | Any workspace agents work in |
 
 ### 0.2 Individual Repo Structure
 

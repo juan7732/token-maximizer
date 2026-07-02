@@ -5,6 +5,7 @@ Reusable document templates for the knowledge base. Copy one when starting a new
 ## Contents
 
 - `pattern.md` - language-agnostic design pattern
+- `capture.md` - pattern/practice distilled from a real codebase, evidence pinned to a commit
 - `adr.md` - architecture decision record
 - `snippet.md` - copy-paste code with context
 - `runbook.md` - operational procedure

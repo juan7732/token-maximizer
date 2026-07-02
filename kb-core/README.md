@@ -10,7 +10,7 @@ Language-agnostic cross-cutting patterns: error handling, concurrency, API desig
 - `patterns/api-design/` - REST, RPC/GraphQL, auth
 - `patterns/data-modeling/` - store choice, schema evolution, serialization
 - `patterns/testing-strategy/` - pyramid, doubles, isolation
-- `decisions/` - planned
+- `decisions/` - real decision records harvested from project code
 
 Patterns are language-agnostic. Concrete code lives in the matching `kb-<lang>/` repo. Each pattern links to its per-language idioms.
 
